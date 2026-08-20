@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "channel": "stable",
+  "version": "0.1.0",
+  "publishedAt": "2026-08-21T00:05:00+02:00",
+  "releaseNotes": "Canal estable inicial de FarmaControl.",
+  "packageUrl": "https://github.com/084garciadavid-creator/farmacontrol-updates/releases/download/v0.1.0/FarmaControl-0.1.0-windows.zip",
+  "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "minimumSupportedVersion": "0.1.0"
+}
