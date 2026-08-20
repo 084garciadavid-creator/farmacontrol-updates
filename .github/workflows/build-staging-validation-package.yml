@@ -1,0 +1,84 @@
+name: Build staging validation package
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/build-staging-validation-package.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build validation ZIP and update testing manifest
+        shell: python
+        run: |
+          import hashlib
+          import json
+          import pathlib
+          import zipfile
+
+          root = pathlib.Path('.')
+          package_dir = root / 'generated' / '0.1.1'
+          package_dir.mkdir(parents=True, exist_ok=True)
+
+          manifest = {
+              'schemaVersion': 1,
+              'product': 'FarmaControl',
+              'version': '0.1.1',
+              'platform': 'windows-x64',
+              'entryExecutable': 'farmacontrol.exe',
+          }
+          (package_dir / 'package-manifest.json').write_text(
+              json.dumps(manifest, indent=2) + '\n', encoding='utf-8'
+          )
+
+          # Deliberately non-runnable validation payload. 0.2.35 only tests
+          # package structure/staging and never executes or installs it.
+          (package_dir / 'farmacontrol.exe').write_bytes(
+              b'MZ\x00\x00FarmaControl staging validation payload 0.1.1\r\n'
+          )
+          (package_dir / 'README.txt').write_text(
+              'FarmaControl 0.1.1 - staging validation package.\n'
+              'This package is intentionally not executable and must never be installed.\n',
+              encoding='utf-8',
+          )
+
+          output_dir = root / 'packages' / 'testing'
+          output_dir.mkdir(parents=True, exist_ok=True)
+          zip_path = output_dir / 'FarmaControl-0.1.1-windows.zip'
+          with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as z:
+              for name in ('package-manifest.json', 'farmacontrol.exe', 'README.txt'):
+                  z.write(package_dir / name, name)
+
+          sha = hashlib.sha256(zip_path.read_bytes()).hexdigest()
+          remote_manifest = {
+              'schemaVersion': 1,
+              'channel': 'testing',
+              'version': '0.1.1',
+              'publishedAt': '2026-08-21T00:30:00+02:00',
+              'releaseNotes': 'Prueba positiva de staging seguro: paquete estructuralmente válido, no instalable.',
+              'packageUrl': 'https://raw.githubusercontent.com/084garciadavid-creator/farmacontrol-updates/main/packages/testing/FarmaControl-0.1.1-windows.zip',
+              'sha256': sha,
+              'minimumSupportedVersion': '0.1.0',
+          }
+          path = root / 'channels' / 'testing' / 'manifest.json'
+          path.parent.mkdir(parents=True, exist_ok=True)
+          path.write_text(json.dumps(remote_manifest, indent=2) + '\n', encoding='utf-8')
+          print('SHA-256:', sha)
+
+      - name: Commit generated validation package
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add packages/testing/FarmaControl-0.1.1-windows.zip channels/testing/manifest.json
+          git diff --cached --quiet && exit 0
+          git commit -m "test(updates): publish 0.1.1 staging validation package"
+          git push
