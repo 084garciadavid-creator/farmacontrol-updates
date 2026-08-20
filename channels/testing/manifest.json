@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "channel": "testing",
   "version": "0.1.1",
-  "publishedAt": "2026-08-21T00:30:00+02:00",
-  "releaseNotes": "Prueba positiva de staging seguro: paquete estructuralmente v\u00e1lido, no instalable.",
+  "publishedAt": "2026-08-21T01:40:00+02:00",
+  "releaseNotes": "Primera actualización real completa de FarmaControl mediante updater seguro.",
   "packageUrl": "https://raw.githubusercontent.com/084garciadavid-creator/farmacontrol-updates/main/packages/testing/FarmaControl-0.1.1-windows.zip",
-  "sha256": "11e7dcd9ada7030ebd0d037ee37fd43e16b562707d9a5d329dd03fbfd9cffa96",
+  "sha256": "16ce6fbc73a3bf7a5f68ecfdc5eaee8cf91da1989b976cf3069536bc12ef0a90",
   "minimumSupportedVersion": "0.1.0"
 }
