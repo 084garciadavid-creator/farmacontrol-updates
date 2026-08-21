@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "channel": "testing",
-  "version": "0.1.1",
-  "publishedAt": "2026-08-21T01:40:00+02:00",
-  "releaseNotes": "Primera actualización real completa de FarmaControl mediante updater seguro.",
-  "packageUrl": "https://raw.githubusercontent.com/084garciadavid-creator/farmacontrol-updates/main/packages/testing/FarmaControl-0.1.1-windows.zip",
-  "sha256": "16ce6fbc73a3bf7a5f68ecfdc5eaee8cf91da1989b976cf3069536bc12ef0a90",
+  "version": "0.1.2",
+  "publishedAt": "2026-08-21T00:13:15.0264762Z",
+  "releaseNotes": "Prueba definitiva de publicación automática mediante GitHub Actions, sin intervención del PC de desarrollo.",
+  "packageUrl": "https://raw.githubusercontent.com/084garciadavid-creator/farmacontrol-updates/main/packages/testing/FarmaControl-0.1.2-windows.zip",
+  "sha256": "50243a2ab8f0f1982ed6838e47f095b5c965f2469972eda67f6b3ec96024ff10",
   "minimumSupportedVersion": "0.1.0"
 }
