@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "channel": "testing",
-  "version": "0.1.5",
-  "publishedAt": "2026-08-21T10:48:06.0325475Z",
-  "releaseNotes": "Actualizaciones automáticas: comprobación al inicio según frecuencia configurada, registro de la última comprobación, aviso visible de nueva versión y descarga automática opcional. Incluye también la configuración Farmatic multiequipo Automático / Farmacia / Casa-Tailscale. Publicación relanzada tras corregir los timeouts de los smoke tests en GitHub Actions.",
-  "packageUrl": "https://raw.githubusercontent.com/084garciadavid-creator/farmacontrol-updates/main/packages/testing/FarmaControl-0.1.5-windows.zip",
-  "sha256": "f302ea2b9a409eca138dee9a8afb5474bf62c0ae913e51ec937c443262bd65bc",
+  "version": "0.1.6",
+  "publishedAt": "2026-08-21T11:01:53.0714151Z",
+  "releaseNotes": "Corrección crítica del actualizador: espera y reintenta cuando Windows mantiene archivos de FarmaControl bloqueados durante el cierre, evitando fallos de instalación y rollback por acceso denegado.",
+  "packageUrl": "https://raw.githubusercontent.com/084garciadavid-creator/farmacontrol-updates/main/packages/testing/FarmaControl-0.1.6-windows.zip",
+  "sha256": "da4d917c129c64d8ba9a320016ba798856b09134221378b62af1473c92888a8e",
   "minimumSupportedVersion": "0.1.0"
 }
