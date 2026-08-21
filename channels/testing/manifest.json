@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "channel": "testing",
-  "version": "0.1.2",
-  "publishedAt": "2026-08-21T00:13:15.0264762Z",
-  "releaseNotes": "Prueba definitiva de publicación automática mediante GitHub Actions, sin intervención del PC de desarrollo.",
-  "packageUrl": "https://raw.githubusercontent.com/084garciadavid-creator/farmacontrol-updates/main/packages/testing/FarmaControl-0.1.2-windows.zip",
-  "sha256": "50243a2ab8f0f1982ed6838e47f095b5c965f2469972eda67f6b3ec96024ff10",
+  "version": "0.1.5",
+  "publishedAt": "2026-08-21T10:48:06.0325475Z",
+  "releaseNotes": "Actualizaciones automáticas: comprobación al inicio según frecuencia configurada, registro de la última comprobación, aviso visible de nueva versión y descarga automática opcional. Incluye también la configuración Farmatic multiequipo Automático / Farmacia / Casa-Tailscale. Publicación relanzada tras corregir los timeouts de los smoke tests en GitHub Actions.",
+  "packageUrl": "https://raw.githubusercontent.com/084garciadavid-creator/farmacontrol-updates/main/packages/testing/FarmaControl-0.1.5-windows.zip",
+  "sha256": "f302ea2b9a409eca138dee9a8afb5474bf62c0ae913e51ec937c443262bd65bc",
   "minimumSupportedVersion": "0.1.0"
 }
